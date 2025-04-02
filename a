@@ -1,0 +1,25 @@
+GET /contracts/123
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    “contract_name”: “サンプル契約”,　 ＜＝＝　①c_name？何の名称だろう？予測しづらい
+    “status”: ”active”, 　 ＜＝＝　①1？何の意味だろう？予測しづらい(有効=activeらしいけど。。)
+    “start_date”: “2023-01-01”, 　 ＜＝＝　②一貫性がない名前、フォーマット
+    “end_date”: “2023-12-31”,　 ＜＝＝　②一貫性がない名前、フォーマット
+    “counterparty_id”: 0001,　 ＜＝＝　③適応可能？今後に会社名が変更したら？
+別に会社名取得用のAPIを作成して、この値はIDのほうがいいかもしれない。
+    “links”: 
+    [{ “rel”: “posts”, “href”: “/contracts/123/posts” }]
+}
+
+■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+GET /contracts/999
+
+HTTP/1.1 200 OK　 ＜＝＝　①エラーではない？予測しづらい
+Content-Type: application/json
+
+{
+    “error_message”: “該当のデータがありません”
+}
